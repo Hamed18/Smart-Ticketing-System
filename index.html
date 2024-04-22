@@ -10,7 +10,7 @@
 	<!-- custom css -->
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body class="font-raleway mx-2 my-2">
+<body class="font-raleway mx-4 my-4 bg-white-500">
 	<header class="">
 		<!-- nav -->
         <nav class="mx-4 mt-4 ">
@@ -57,13 +57,28 @@
             </div>
         </nav>
 
-		<!-- banner -->
-
+    <!-- Banner Container -->
+	<div class="relative w-full h-96 bg-cover bg-center rounded-xl bg-[url(images/banner.png)]">
+		<!-- Banner Content -->
+		<div class="absolute inset-0 flex flex-col justify-center items-center bg-white-500 bg-opacity-50 text-white text-center">
+		  <!-- Banner Title -->
+		  <h2 class="text-3xl font-bold">End-to-End Travel <br> <span class="text-green-500">with P Paribahan</span> </h2>
+	
+		  <!-- Banner Description -->
+		  <p class="mt-2 text-[16px] font-normal opacity-75">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
+	      <div class="flex justify-center mt-5">
+			<!-- Button with Green Background and White Text -->
+			<button class="bg-green-500 text-white font-bold p-3 rounded hover:bg-green-600 uppercase">
+			  buy ticket
+			</button>
+		  </div>
+		</div>
+    </div>
 	</header>
 
 	<main>
 		<!-- Best Offer Section -->
-		<section class="mx-auto my-4">
+		<section class="mx-auto my-4 mt-12">
 			<h2 class="text-3xl font-bold opacity-105 text-center">Best offers for you</h2>
 			<div class="flex flex-col lg:flex-row justify-between gap-4"> 
 				<div class="flex flex-col lg:flex-row gap-6 justify-between items-center p-6 m-8 bg-yellow-400 rounded-lg">
@@ -90,16 +105,22 @@
 				</div>
 	
 			</div>
-			<div class="btn bg-white rounded-sm">See All Offers</div>
+			<div class="flex justify-center mt-5">
+				<!-- Button with Green Background and White Text -->
+				<button class="bg-green-500 text-white font-bold p-3 rounded hover:bg-green-600 uppercase">
+				  see all offers
+				</button>
+			</div>
+		
 		</section>
 		<!-- End of Best Offer Section -->
 
-		<section class="">
-			<h3 class="text-center">P.H Paribahan</h3>
+		<section class="my-12">
+			<h3 class="text-center font-bold">P.H Paribahan</h3>
 			<p class="text-center">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
 		</section>
 
-
+    
 	</main>
 	
 
