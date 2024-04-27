@@ -7,6 +7,11 @@ for (const btn of btnClicked){
 		const name = event.target.parentNode.childNodes[1].innerText;
 
 		const selectedContainer = document.getElementById("booked-seat");
+
+		// update number of available seats
+		const availableSeat = getConvertedValue("available-seat")-1;
+		document.getElementById("available-seat").innerText = availableSeat;
+		
  
 		// Now create parent div and child paragraph tag using DOM
 		const div = document.createElement("div");
