@@ -8,10 +8,19 @@ for (const btn of btnClicked){
 
 		const selectedContainer = document.getElementById("booked-seat");
 
+		// BreakPoint: if user exceed maximum seat limit, break the loop
+		const seatLeft = getConvertedValue("seat-limit");
+		if (seatLeft-1 < 0){
+			alert("Maximum Seat Booking Limit is 4");
+		    return;
+		}
+
 		// update number of available seats
 		const availableSeat = getConvertedValue("available-seat")-1;
 		document.getElementById("available-seat").innerText = availableSeat;
 		
+		const seatLimit = getConvertedValue("seat-limit")-1;
+		document.getElementById("seat-limit").innerText = seatLimit;
  
 		// Now create parent div and child paragraph tag using DOM
 		const div = document.createElement("div");
@@ -37,6 +46,7 @@ for (const btn of btnClicked){
 		
 		// display and update Grand Total when user click a seat button i.e. A1, A3 and so on
 		UpdateGrandTotal();
+
 	
 	});
 	
