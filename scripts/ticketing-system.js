@@ -7,7 +7,8 @@ for (const btn of btnClicked){
 		const name = event.target.parentNode.childNodes[1].innerText;
 
 		const selectedContainer = document.getElementById("booked-seat");
-
+ 
+		// Now create parent div and child paragraph tag using DOM
 		const div = document.createElement("div");
 		div.classList.add("bookedSeatStyle")
 
@@ -24,27 +25,35 @@ for (const btn of btnClicked){
 		div.appendChild(p3);
 
 		selectedContainer.appendChild(div);
-
+        
+		// display and update Total Price when user click a seat button i.e. A1, A3 and so on
+		const price = 550;
+		UpdateTotalPrice(price);
 		
+		// display and update Grand Total when user click a seat button i.e. A1, A3 and so on
+		UpdateGrandTotal();
 	
 	});
 	
 }
 
 
-const btnClickedR = document.getElementsByClassName("btn-click-r");
+function UpdateTotalPrice(value){
+//	console.log(value);
+	const TotalPrice = getConvertedValue("total-price");
+    const sum = TotalPrice + value;
+	document.getElementById("total-price").innerText = sum;  // imp
 
-for (const btn of btnClickedR){
-	btn.addEventListener("click", function(event){
-
-	})
 }
 
-
+// This function return the innertext or content of the element
 function getConvertedValue(id){
 	const price = document.getElementById(id).innerText;
 	const convertPrice = parseInt(price);
-	console.log(convertPrice);
+	return convertPrice;
 }
 
-getConvertedValue();
+function UpdateGrandTotal(id){
+     const GrandTotal = getConvertedValue("total-price");
+	 document.getElementById("grand-total").innerText = GrandTotal;
+}
