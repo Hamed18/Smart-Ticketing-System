@@ -8,3 +8,10 @@
   .font-anton{
     font-family: 'Anton', sans-serif;
   }
+
+.bookedSeatStyle{
+   display:flex;
+   justify-content: space-around;
+   padding: 10px;
+   text-align: center;
+}  

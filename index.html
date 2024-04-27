@@ -8,7 +8,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.1/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 	<!-- custom css -->
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body class="font-raleway mx-4 my-4 lg:mx-12 bg-white-500">
 	<header class="">
@@ -168,7 +168,7 @@
             </div>
 	
 			<div class="flex flex-col justify-center items-center text-center mt-0">
-				<h3 class="font-extrabold text-2xl text-black">550 Tk</h3>
+				<h3 id="abc" class="font-extrabold text-2xl text-black">550 Tk</h3>
 				<p class="text-xl opacity-75">Per Seat</p>
 			</div>
 		</section>
@@ -183,47 +183,61 @@
 				 </div>
                  
 				<!-- seat allocation -->
+				<!-- First Row -->
 				 <div class="flex flex-row flex-grow justify-around gap-4 my-4">
 					<div class="flex flex-row justify-center items-center  gap-4">
 						<p class="text-xl font-bold">A</p>
                         <div>    
-							<button class="bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
+							<button class="btn-click bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
 								a1
 							</button>
-							<button class="bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
+						</div>
+						<div>
+							<button class="btn-click bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
 								a2
 							</button>	
 						</div>  
 				    </div>
-					<div class="mx-2">
-						<button class="bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
+					<div class="mx-2 flex flex-row justify-center items-center  gap-4">
+						<div>
+						  <button class="btn-click bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
 							a3
 						  </button>
-						  <button class="bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
+						</div>
+						<div>
+						  <button class="btn-click bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
 							a4
-						  </button>			  
+						  </button>	
+						</div>		  
 					</div>
 				 </div>
 
+				 <!-- Second Row -->
 				 <div class="flex flex-row flex-grow justify-around gap-4 my-4">
 					<div class="flex flex-row justify-center items-center  gap-4">
-						<p class="text-xl font-bold">B</p>
+						<p class="text-xl font-bold">A</p>
                         <div>    
-							<button class="bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
-								B1
+							<button class="btn-click bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
+								a3
 							</button>
-							<button class="bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
-								b2
+						</div>
+						<div>
+							<button class="btn-click bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
+								a4
 							</button>	
 						</div>  
 				    </div>
-					<div class="mx-2">
-						<button class="bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
+					<div class="mx-2 flex flex-row justify-center items-center  gap-4">
+						<div>
+						  <button class="btn-click bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
 							b3
 						  </button>
-						  <button class="bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
+						</div>
+						<div>
+						  <button class="btn-click bg-gray-300 text-white font-bold px-4 py-2 rounded-xl hover:bg-green-600 uppercase">
 							b4
-						  </button>			  
+						  </button>	
+						</div>		  
 					</div>
 				 </div>
 
@@ -246,7 +260,9 @@
 					 <h4>class</h4>
 					 <h4>Price</h4>
 				 </div>
-				 <div class="flex flex-row justify-between gap-12 my-2">
+				 
+				 <div id="booked-seat"></div>  <!-- dynamic update of booked-seat -->
+				<!-- <div class="flex flex-row justify-between gap-12 my-2">
 					  <h4>C2</h4>
 					  <h4>Economy</h4>
 					  <h4>550</h4>
@@ -255,12 +271,12 @@
 					<h4>C2</h4>
 					<h4>Economy</h4>
 					<h4>550</h4>
-				 </div>
+				 </div>  -->
 
 				 <!-- total price-->
 				 <div class="flex flex-row justify-between gap-12 border-t border-dashed border-green-500 border-opacity-40 my-2">
 					<h4 class="font-bold">Total Price</h4>
-					<h4 class="font-bold">550</h4>
+					<h4 class="font-bold"><span id="total-price">0</span> Tk</h4>  <!-- dynamic update of grand total -->
 				 </div>
 
 				 <!-- coupon -->
@@ -269,9 +285,9 @@
 					<button class="btn text-white-500 bg-green-500 font-bold rounded-xl py-1 px-3 mr-1">Apply</button>
 				  </label>
 				  <div class="flex flex-row justify-between gap-12 text-center my-2">
-					<h3 class="font-bold">Grand Total</h3>
-					<h3 class="font-bold">550</h3>
-				  </div>
+					<h4 class="font-bold">Grand Total: </h4>
+					<h4 class="font-bold"><span id="grand-total">0</span> Tk</h4>  <!-- dynamic update of grand total -->
+				</div>
 
 				 <!--user info-->
                   <div class="my-8 ">
@@ -281,6 +297,7 @@
 					 <input type="text" placeholder="Phone Number" class="input input-bordered input-accent w-full max-w-xs" />
 					 <h3 class="text-2xl font-bold flex justify-start py-4">Email ID</h3>
 					 <input type="text" placeholder="Your Email" class="input input-bordered input-accent w-full max-w-xs" />
+					 <br>
 					 <button class="btn text-white-500 bg-green-500 font-bold rounded-xl my-8 py-2 px-8 mr-1">NEXT</button>
 				   </div>
 			  </div>
