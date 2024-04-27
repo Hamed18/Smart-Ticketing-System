@@ -53,7 +53,27 @@ function getConvertedValue(id){
 	return convertPrice;
 }
 
-function UpdateGrandTotal(id){
-     const GrandTotal = getConvertedValue("total-price");
-	 document.getElementById("grand-total").innerText = GrandTotal;
+function UpdateGrandTotal(status){
+	if (status == undefined){   // means this not occur from coupon code. 
+		const GrandTotal = getConvertedValue("total-price");
+		document.getElementById("grand-total").innerText = GrandTotal;   
+	}
+	else {   // using coupon code, user will get discount
+        const couponCode = document.getElementById("coupon-code").value;
+		if (couponCode === "NEW15"){
+			const GrandTotal = getConvertedValue("total-price");
+			const discount = GrandTotal*0.15;
+			document.getElementById("grand-total").innerText = GrandTotal-discount;   
+	
+		}
+		else if (couponCode === "Couple 20"){
+			const GrandTotal = getConvertedValue("total-price");
+			const discount = GrandTotal*0.2;
+			document.getElementById("grand-total").innerText = GrandTotal-discount;   
+
+		}
+		else {
+			alert("Please Enter Valid Coupon Code");
+		}
+	}
 }
