@@ -53,7 +53,20 @@ for (const btn of btnClicked){
 		// display and update Grand Total when user click a seat button i.e. A1, A3 and so on
 		UpdateGrandTotal();
 
-	
+		// show next button when input field are filled
+		const userName = document.getElementById("user-name").value.trim();
+		const userNumber = document.getElementById("user-number").value.trim();
+		const userEmail = document.getElementById("user-email").value.trim();
+		const submitBtn = document.getElementById("next-btn");
+
+	   // If all fields are filled, show the button
+	     if (userName && userNumber && userEmail) {
+		   submitBtn.style.display = 'block';
+	     } else {
+		  // If any field is empty, hide the button
+		 submitBtn.style.display = 'none';
+	     }	
+
 	});
 	
 }
