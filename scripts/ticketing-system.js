@@ -8,6 +8,9 @@ for (const btn of btnClicked){
 
 		const selectedContainer = document.getElementById("booked-seat");
 
+		// if user wants select a seat twice, in that case..
+		event.target.setAttribute("disabled",false);  // now user can't select a seat multiple times. Once a button is selected, it's disabled.		
+
 		// BreakPoint: if user exceed maximum seat limit, break the loop
 		const seatLeft = getConvertedValue("seat-limit");
 		if (seatLeft-1 < 0){
@@ -15,10 +18,13 @@ for (const btn of btnClicked){
 		    return;
 		}
 
+		event.target.parentNode.childNodes[1].style.backgroundColor = "green";  // if user select a seat i.e. A1 the button will be green now
+
 		// update number of available seats
 		const availableSeat = getConvertedValue("available-seat")-1;
 		document.getElementById("available-seat").innerText = availableSeat;
 		
+		// initially this element is hiddent in layout, it's needed for breakpoint
 		const seatLimit = getConvertedValue("seat-limit")-1;
 		document.getElementById("seat-limit").innerText = seatLimit;
  
@@ -53,6 +59,13 @@ for (const btn of btnClicked){
 }
 
 
+// This function return the innertext or content of the element
+function getConvertedValue(id){
+	const price = document.getElementById(id).innerText;
+	const convertPrice = parseInt(price);
+	return convertPrice;
+}
+
 function UpdateTotalPrice(value){
 //	console.log(value);
 	const TotalPrice = getConvertedValue("total-price");
@@ -61,25 +74,18 @@ function UpdateTotalPrice(value){
 
 }
 
-// This function return the innertext or content of the element
-function getConvertedValue(id){
-	const price = document.getElementById(id).innerText;
-	const convertPrice = parseInt(price);
-	return convertPrice;
-}
-
 function UpdateGrandTotal(status){
-	if (status == undefined){   // means this not occur from coupon code. 
+	// console.log(status);
+	if (status == undefined){   // means this not occur from coupon code apply button. 
 		const GrandTotal = getConvertedValue("total-price");
 		document.getElementById("grand-total").innerText = GrandTotal;   
 	}
 	else {   // using coupon code, user will get discount
-        const couponCode = document.getElementById("coupon-code").value;
+        const couponCode = document.getElementById("coupon-code").value;  // as it is input field so use .value instead of .innerText
 		if (couponCode === "NEW15"){
 			const GrandTotal = getConvertedValue("total-price");
 			const discount = GrandTotal*0.15;
-			document.getElementById("grand-total").innerText = GrandTotal-discount;   
-	
+			document.getElementById("grand-total").innerText = GrandTotal-discount;   	
 		}
 		else if (couponCode === "Couple 20"){
 			const GrandTotal = getConvertedValue("total-price");
@@ -91,4 +97,5 @@ function UpdateGrandTotal(status){
 			alert("Please Enter Valid Coupon Code");
 		}
 	}
+
 }
