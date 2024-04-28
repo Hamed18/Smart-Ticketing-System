@@ -74,6 +74,13 @@ function UpdateTotalPrice(value){
 
 }
 
+
+function getElementHidden(id){
+	const hiddenElement = document.getElementById(id);
+//	console.log(couponSystem);
+	hiddenElement.classList.add("hidden");
+}
+
 function UpdateGrandTotal(status){
 	// console.log(status);
 	if (status == undefined){   // means this not occur from coupon code apply button. 
@@ -86,12 +93,17 @@ function UpdateGrandTotal(status){
 			const GrandTotal = getConvertedValue("total-price");
 			const discount = GrandTotal*0.15;
 			document.getElementById("grand-total").innerText = GrandTotal-discount;   	
+
+			// once coupon code is applied, it will disabled.
+	            getElementHidden("coupon-hidden");
 		}
 		else if (couponCode === "Couple 20"){
 			const GrandTotal = getConvertedValue("total-price");
 			const discount = GrandTotal*0.2;
 			document.getElementById("grand-total").innerText = GrandTotal-discount;   
-
+			
+			// once coupon code is applied, it will disabled.
+			   getElementHidden("coupon-hidden");
 		}
 		else {
 			alert("Please Enter Valid Coupon Code");
@@ -99,3 +111,4 @@ function UpdateGrandTotal(status){
 	}
 
 }
+

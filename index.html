@@ -280,7 +280,7 @@
 				 </div>
 
 				 <!-- coupon -->
-				 <label class="input input-bordered flex items-center gap-2 my-2">
+				 <label class="input input-bordered flex items-center gap-2 my-2" id = "coupon-hidden">
 					<input type="text" class="grow" placeholder="coupon code" id="coupon-code"/>  <!-- dynamic update -->
 					<button onclick="UpdateGrandTotal('apply-btn')" class="btn text-white-500 bg-green-500 font-bold rounded-xl py-1 px-3 mr-1">Apply</button>
 				  </label>
@@ -299,7 +299,21 @@
 					 <h3 class="text-2xl font-bold flex justify-start py-4">Email ID</h3>
 					 <input type="text" placeholder="Your Email" class="input input-bordered input-accent w-full max-w-xs" />
 					 <br>
-					 <button class="btn text-white-500 bg-green-500 font-bold rounded-xl my-8 py-2 px-8 mr-1">NEXT</button>
+			<!-- 		 <button class="btn text-white-500 bg-green-500 font-bold rounded-xl my-8 py-2 px-8 mr-1">NEXT</button>  -->
+			          <!-- You can open the modal using ID.showModal() method -->
+<button class="btn" onclick="my_modal_4.showModal()">open modal</button>
+<dialog id="my_modal_4" class="modal">
+  <div class="modal-box w-11/12 max-w-5xl">
+    <h3 class="font-bold text-lg">Hello!</h3>
+    <p class="py-4">Click the button below to close</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
 				   </div>
 			  </div>
 			</div>
