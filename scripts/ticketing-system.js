@@ -23,6 +23,12 @@ for (const btn of btnClicked){
 		// update number of available seats
 		const availableSeat = getConvertedValue("available-seat")-1;
 		document.getElementById("available-seat").innerText = availableSeat;
+
+		const seatCount = getConvertedValue("seat-count")+1;
+		document.getElementById("seat-count").innerText=seatCount;
+		if (seatCount == 4) {
+			showElement("coupon-display");
+		}
 		
 		// initially this element is hiddent in layout, it's needed for breakpoint
 		const seatLimit = getConvertedValue("seat-limit")-1;
@@ -52,25 +58,27 @@ for (const btn of btnClicked){
 		
 		// display and update Grand Total when user click a seat button i.e. A1, A3 and so on
 		UpdateGrandTotal();
-
-		// show next button when input field are filled
-		const userName = document.getElementById("user-name").value.trim();
-		const userNumber = document.getElementById("user-number").value.trim();
-		const userEmail = document.getElementById("user-email").value.trim();
-		const submitBtn = document.getElementById("next-btn");
-
-	   // If all fields are filled, show the button
-	     if (userName && userNumber && userEmail) {
-		   submitBtn.style.display = 'block';
-	     } else {
-		  // If any field is empty, hide the button
-		 submitBtn.style.display = 'none';
-	     }	
-
 	});
 	
 }
 
+// show next button when input field are filled
+	const submitBtn = document.getElementById("next-btn");
+    submitBtn.addEventListener("click", function(event){   // Event listener for input changes
+		const userName = document.getElementById("user-name").value.trim();
+		const userNumber = document.getElementById("user-number").value.trim();
+		const userEmail = document.getElementById("user-email").value.trim();
+		if (userName && userNumber && userEmail) {
+			event.target.setAttribute("disabled",true);  // now user can't select a seat multiple times. Once a button is selected, it's disabled.		
+         //   submitBtn.classList.replace("bg-gray-300", "bg-blue-500");
+		  } else {
+		   // If any field is empty, hide the button
+		    event.target.setAttribute("disabled",false);  // now user can't select a seat multiple times. Once a button is selected, it's disabled.		
+		//   submitBtn.classList.replace("bg-gray-300", "bg-blue-500");
+		  }	  
+ 
+	})
+	
 
 // This function return the innertext or content of the element
 function getConvertedValue(id){
@@ -94,6 +102,14 @@ function getElementHidden(id){
 	hiddenElement.classList.add("hidden");
 }
 
+function showElement(id){
+	const showElement = document.getElementById(id);
+//	console.log(couponSystem);
+	showElement.classList.remove("hidden");
+}
+
+
+// Grand Total : using coupon code or without coupon code
 function UpdateGrandTotal(status){
 	// console.log(status);
 	if (status == undefined){   // means this not occur from coupon code apply button. 

@@ -194,7 +194,7 @@
 				<!-- seat allocation -->
 				<div class="mx-4">
 				  <!-- First Row -->
-				 <div class="flex flex-row flex-grow justify-around gap-4 my-4">
+				 <div class="flex flex-row flex-grow justify-around gap-4 lg:gap-8 my-4">
 					<div class="flex flex-row justify-center items-center  gap-4">
 						<p class="text-xl font-bold">A</p>
                         <div>    
@@ -484,8 +484,9 @@
 
 			  <div>
                  <div class="flex flex-row justify-between gap-4 text-xl font-bold gap-12 border-green-500 border-opacity-40 my-2">
-					 <div class="border-green-500 border-opacity-40">
+					 <div class="border-green-500 border-opacity-40 flex gap-2">
 						<h4>Seat</h4>
+						<div class="bg-green-500 px-1 text-white"><span id="seat-count">0</span></div>
 					 </div>
 					 <h4>class</h4>
 					 <h4>Price</h4>
@@ -500,10 +501,12 @@
 				 </div>
 
 				 <!-- coupon -->
-				 <label class="input input-bordered flex items-center gap-2 my-2" id = "coupon-hidden">
-					<input type="text" class="grow" placeholder="coupon code" id="coupon-code"/>  <!-- dynamic update -->
-					<button onclick="UpdateGrandTotal('apply-btn')" class="btn text-white-500 bg-green-500 font-bold rounded-xl py-1 px-3 mr-1">Apply</button>
-				  </label>
+				<div class="hidden" id="coupon-display">
+				   <label class="input input-bordered flex items-center gap-2 my-2" id = "coupon-hidden">
+					 <input type="text" class="grow" placeholder="Enter Coupon Code" id="coupon-code"/>  <!-- dynamic update -->
+					 <button onclick="UpdateGrandTotal('apply-btn')" class="btn text-white-500 bg-green-500 font-bold rounded-xl py-1 px-3 mr-1" >Apply</button>
+				   </label>
+				</div>
 				  <h4 class="hidden">Selected Seats: <span id="seat-limit">4</span></h4> <br>  <!-- dynamic update -->
 				  <div class="flex flex-row justify-between gap-12 text-center my-2">
 					<h4 class="font-bold">Grand Total: </h4>
@@ -523,8 +526,9 @@
 			          <!-- You can open the modal using ID.showModal() method -->
 				   </div>
 				   <div class="my-2">
+					
 					  <!-- modal -->
-<a id="next-btn" href="#my_modal_8" class="btn bg-green-500">NEXT</a>
+<a id="next-btn" href="#my_modal_8" class="btn bg-green-500 disabled">NEXT</a>
 <div class="modal" role="dialog" id="my_modal_8">
   <div class="modal-box">
     <h3 class="font-bold text-lg">Ticket Successfully Purchased!</h3>
