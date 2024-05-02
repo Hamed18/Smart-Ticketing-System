@@ -486,7 +486,7 @@
                  <div class="flex flex-row justify-between gap-4 text-xl font-bold gap-12 border-green-500 border-opacity-40 my-2">
 					 <div class="border-green-500 border-opacity-40 flex gap-2">
 						<h4>Seat</h4>
-						<div class="bg-green-500 px-1 text-white"><span id="seat-count">0</span></div>
+						<div class="bg-green-500 px-2 text-white rounded-sm"><span id="seat-count">0</span></div>
 					 </div>
 					 <h4>class</h4>
 					 <h4>Price</h4>
@@ -518,9 +518,9 @@
 					 <h3 class="text-2xl font-bold flex justify-start py-4">Passenger Name</h3>
 					 <input id="user-name" type="text" placeholder="Your Name" class="input input-bordered input-accent w-full max-w-xs" />
 					 <h3 class="text-2xl font-bold flex justify-start py-4">Phone Number</h3>
-					 <input id="user-number" type="text" placeholder="Phone Number" class="input input-bordered input-accent w-full max-w-xs" />
+					 <input id="user-number" type="phone" placeholder="Phone Number" class="input input-bordered input-accent w-full max-w-xs" />
 					 <h3 class="text-2xl font-bold flex justify-start py-4">Email ID</h3>
-					 <input id="user-email" type="text" placeholder="Your Email" class="input input-bordered input-accent w-full max-w-xs" />
+					 <input id="user-email" type="email" placeholder="Your Email" class="input input-bordered input-accent w-full max-w-xs" />
 					 <br>
 			<!-- 		 <button class="btn text-white-500 bg-green-500 font-bold rounded-xl my-8 py-2 px-8 mr-1">NEXT</button>  -->
 			          <!-- You can open the modal using ID.showModal() method -->
@@ -528,7 +528,7 @@
 				   <div class="my-2">
 					
 					  <!-- modal -->
-<a id="next-btn" href="#my_modal_8" class="btn bg-green-500 disabled">NEXT</a>
+<a id="next-btn" href="#my_modal_8" class="btn bg-green-500 disabled hidden">NEXT</a>
 <div class="modal" role="dialog" id="my_modal_8">
   <div class="modal-box">
     <h3 class="font-bold text-lg">Ticket Successfully Purchased!</h3>

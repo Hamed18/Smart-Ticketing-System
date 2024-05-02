@@ -26,8 +26,16 @@ for (const btn of btnClicked){
 
 		const seatCount = getConvertedValue("seat-count")+1;
 		document.getElementById("seat-count").innerText=seatCount;
+		// if user select 4 seats, only then coupon button will enable.
 		if (seatCount == 4) {
 			showElement("coupon-display");
+		}
+		// if user click a seat button and also fill phone number input field, next button will enable.
+		if (seatCount == 1){
+			const userNumber = document.getElementById("user-number");
+            userNumber.addEventListener("input", function () {
+                showElement("next-btn");
+            });
 		}
 		
 		// initially this element is hiddent in layout, it's needed for breakpoint
@@ -62,7 +70,7 @@ for (const btn of btnClicked){
 	
 }
 
-// show next button when input field are filled
+/* show next button when input field are filled
 	const submitBtn = document.getElementById("next-btn");
     submitBtn.addEventListener("click", function(event){   // Event listener for input changes
 		const userName = document.getElementById("user-name").value.trim();
@@ -77,7 +85,7 @@ for (const btn of btnClicked){
 		//   submitBtn.classList.replace("bg-gray-300", "bg-blue-500");
 		  }	  
  
-	})
+	})  */
 	
 
 // This function return the innertext or content of the element
