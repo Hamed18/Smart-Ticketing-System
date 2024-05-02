@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body class="font-raleway mx-4 my-4 lg:mx-12 bg-white-500">
-	<header class="">
+	<header id="home">
 		<!-- nav -->
         <nav class="mx-4 mt-4 lg:flex justify-around gap-8">
             <div class="navbar bg-base-100">
@@ -27,10 +27,10 @@
                         </div>
                         <ul tabindex="0"
                             class="menu menu-sm dropdown-content  font-semibold text-[#9595a0] mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a>Home</a></li>
-                            <li><a>About</a></li>
-                            <li><a>Destination</a></li>
-                            <li><a>Search</a></li>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#offers">About</a></li>
+                            <li><a href="#buy-ticket">Destination</a></li>
+                            <li><a href="#search">Search</a></li>
                         </ul>
                     </div>
                     <a class="btn btn-ghost text-green-500 font-bold text-2xl lg:text-3x ">HeaVen eXpress</a>
@@ -38,10 +38,10 @@
 
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal  text-[#9595a0] px-1 font-semibold">
-                        <li><a>Home</a></li>
-                        <li><a>About</a></li>
-						<li><a>Destination</a></li>
-						<li><a>Search</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#offers">About</a></li>
+						<li><a href="#buy-ticket">Destination</a></li>
+						<li><a href="#search">Search</a></li>
 					</ul>
                 </div>
                 <div class="navbar-end gap-4 hidden lg:block">
@@ -192,7 +192,7 @@
 				 </div>
                  
 				<!-- seat allocation -->
-				<div class="mx-4">
+				<div class="mx-4" id="search">
 				  <!-- First Row -->
 				 <div class="flex flex-row flex-grow justify-around gap-4 lg:gap-8 my-4">
 					<div class="flex flex-row justify-center items-center  gap-4">
